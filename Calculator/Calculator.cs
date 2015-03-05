@@ -163,5 +163,22 @@ namespace Calculator
                 textBox.Text = Convert.ToString(arg1);
             }
         }
+
+        private void bComma_Click(object sender, EventArgs e)
+        {
+            String comma = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+            if (!textBox.Text.Contains(comma))
+            {
+                textBox.Text = textBox.Text + comma;
+            }
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox.Text == "")
+            { 
+                textBox.Text = "0"; 
+            }
+        }
     }
 }

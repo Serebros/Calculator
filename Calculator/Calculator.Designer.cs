@@ -86,7 +86,9 @@
             this.textBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBox.Size = new System.Drawing.Size(190, 50);
             this.textBox.TabIndex = 1;
+            this.textBox.Text = "0";
             this.textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             this.textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // bMC
@@ -362,6 +364,7 @@
             this.bComma.TabIndex = 28;
             this.bComma.Text = ",";
             this.bComma.UseVisualStyleBackColor = true;
+            this.bComma.Click += new System.EventHandler(this.bComma_Click);
             // 
             // Calculator
             // 
@@ -398,7 +401,9 @@
             this.Controls.Add(this.bMC);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Калькулятор";
             this.menuStrip.ResumeLayout(false);
