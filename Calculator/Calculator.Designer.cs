@@ -406,6 +406,7 @@
             this.MaximizeBox = false;
             this.Name = "Calculator";
             this.Text = "Калькулятор";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);

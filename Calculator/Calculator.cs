@@ -22,8 +22,8 @@ namespace Calculator
             InitializeComponent();
         }
 
-        private void Digit_Click(object sender, EventArgs e)
-        {
+        private void Digit_Click(object sender, EventArgs e)   
+        {  // обработка кнопок с цифрами
             if (!editing)
             {
                 textBox.Text = "";
@@ -117,15 +117,16 @@ namespace Calculator
             editing = false;
         }
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Char pressed = e.KeyChar;
+        {   // Обработка текста, вводимого с клавиатуры в поле ввода
+            Char pressed = e.KeyChar; // нажатый символ
             if (!(Char.IsNumber(pressed) || pressed == '\b'))
             {
-                e.Handled = true;   //запрет ввода
+                e.Handled = true;   // запрет ввода
                 if (pressed == '+') Operations_Click(bPlus, null);
                 if (pressed == '-') Operations_Click(bMinus, null);
                 if (pressed == '*') Operations_Click(bMull, null);
                 if (pressed == '/') Operations_Click(bDivision, null);
+                if (pressed == ',' || pressed == '.') bComma_Click(null, null);
             }
             else
             { 
@@ -179,6 +180,14 @@ namespace Calculator
             { 
                 textBox.Text = "0"; 
             }
+            if (textBox.Text.Length > 1)
+            {
+                if (textBox.Text[0] == '0' && Char.IsNumber(textBox.Text[1]))
+                {
+                    textBox.Text = textBox.Text.Substring(1);
+                }
+            }
+            textBox.SelectionStart = textBox.Text.Length;
         }
     }
 }
